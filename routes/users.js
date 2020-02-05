@@ -5,8 +5,7 @@ const jwt = require('jsonwebtoken');
 /* GET users listing. */
 //router.get('/', [UsersController.insert]); //
 
-
-
+//Secure routes
 router.get('/me', [AuthMiddleware.validateUserToken,
                   function (req, res) {
                       res.send("Valid token. Send me data");
