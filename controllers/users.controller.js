@@ -6,8 +6,9 @@ exports.insert = async (req, res, next) => {
       await user.save();
       req.body._id = user._id;
       return next();
-      
+
   } catch(err) {
-    res.send(err);
+    res.status(400);
+    if (err) res.send({errormessage : err.errmsg});
   }
 };
