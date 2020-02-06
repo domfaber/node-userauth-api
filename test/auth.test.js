@@ -9,6 +9,9 @@ describe("drop users db", () => {
   beforeEach(async () => {
     await User.deleteMany({});
   });
+  after(async () => {
+    await User.deleteMany({});
+  });
 
 /*
   auth/signup route testing
@@ -82,7 +85,6 @@ describe("drop users db", () => {
 
     });
   });
-
 
 
 });
