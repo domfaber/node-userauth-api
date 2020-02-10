@@ -11,7 +11,6 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 
 var app = express();
-
 //Config
 const dbname = "domnode1";
 app.use(logger('dev'));

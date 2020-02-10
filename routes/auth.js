@@ -23,7 +23,8 @@ router.post('/signin', async function (req, res) {
     //Check if email exists and password is correct
     //if not send a general message like email or password not valid
     let permission = await user.isValidPassword(req.body.password);
-    console.log("Permission to login"+permission);
+
+    console.log("Permission to login:"+permission);
     if (!permission) {
       res.send("Wrong email or username");
     } else {
