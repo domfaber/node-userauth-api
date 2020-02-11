@@ -12,5 +12,12 @@ pipeline {
         sh 'tidy -q -e *.html'
       }
     }
+    stage('Upload to AWS') {
+        steps {
+          withAWS(region:'us-west-s',credentials:'aws-cli-admin') {
+            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:’index.html’, bucket:'domjenkinstestudacity')
+          }
+        }
+      }
   }
 }
