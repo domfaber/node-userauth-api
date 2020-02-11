@@ -15,7 +15,7 @@ pipeline {
     stage('Upload to AWS') {
         steps {
           withAWS(region:'us-west-2', credentials:'aws-cli-admin') {
-            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:’index.html’, bucket:'domjenkinstestudacity', path: './index.html')
+            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'test.html’, bucket:'domjenkinstestudacity')
           }
         }
       }
