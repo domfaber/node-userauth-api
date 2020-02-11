@@ -7,5 +7,10 @@ pipeline {
         sh 'ls -lah'
       }
     }
+    stage('Lint HTML') {
+      steps {
+        sh 'sudo apt install tidy'
+        sh 'tidy -q -e *.html'
+      }
   }
 }
