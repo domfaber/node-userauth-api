@@ -18,7 +18,11 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        appTest = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
+        //appTest = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
+
+        app.inside {
+            sh 'npm test'
+        }
     }
 
     stage('Push image') {
