@@ -1,5 +1,5 @@
 node {
-
+    def app
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -11,7 +11,11 @@ node {
          * docker build on the command line */
 
 
-        def app = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
+        app = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
+
+        app.inside {
+          sh 'npm test'
+        }
     }
 
     stage('Test image') {
