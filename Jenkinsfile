@@ -3,13 +3,14 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'echo “We should run tests first”'
+        sh 'ls'
       }
     }
     stage('Build docker image') {
       steps {
-        sh 'sudo docker build -t userbackend'
-        sh 'sudo docker images ls'
+        script {
+          def customImage = docker.build("my-image:${env.BUILD_ID}")
+        }
       }
     }
   }
