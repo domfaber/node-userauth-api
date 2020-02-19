@@ -11,7 +11,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         //appTest = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
 
-        sh 'sudp apt install npn'
+        sh 'sudo apt install npn'
         sh 'npm install'
         sh 'npm test'
 
