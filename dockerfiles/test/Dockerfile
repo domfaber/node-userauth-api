@@ -16,6 +16,6 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["mocha", "tests/test.js", "--reporter", "spec"]
+CMD ["npm", "test"]
 
 
