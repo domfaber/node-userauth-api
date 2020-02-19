@@ -12,7 +12,7 @@ node {
          * docker build on the command line */
 
 
-        def app = docker.build("granolahouse/userbackend", "-f dockerfiles/test/Dockerfile .")
+        def app = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
     }
 
     stage('Test image') {
