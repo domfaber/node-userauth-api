@@ -7,7 +7,7 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Build production image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
@@ -17,10 +17,11 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
+        appTest = docker.build("granolahouse/userbackend", "dockerfile.test")
+    }
 
-        //app.inside {
-        //    sh 'echo "Tests passed"'
-        //}
+    stage('')  {
+      //We should also deploy it in a kubernetes cluster to see if this works
     }
 
     stage('Push image') {
