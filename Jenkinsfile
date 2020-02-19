@@ -11,13 +11,14 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("granolahouse/userbackend", "./dockerfiles/production")
+
+        app = docker.build("granolahouse/userbackend", "-f dockerfiles/test/Dockerfile")
     }
 
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        appTest = docker.build("granolahouse/userbackend", "./dockerfiles/test")
+        appTest = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile")
     }
 
     stage('')  {
