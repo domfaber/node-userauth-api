@@ -1,0 +1,9 @@
+version: 1
+task_definition:
+  services:
+    node:
+      cpu_shares: 100
+      mem_limit: 524288000
+    mongo:
+      cpu_shares: 100
+      mem_limit: 524288000

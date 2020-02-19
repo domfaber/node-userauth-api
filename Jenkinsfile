@@ -1,23 +1,16 @@
 pipeline {
-  agent any 
+  agent any
   stages {
-    stage('Build') {
+    stage('Test') {
       steps {
-        sh 'echo “Hello World”'
-        sh 'ls -lah'
+        sh 'echo “We should run tests first”'
       }
     }
-    stage('Lint HTML') {
+    stage('Build docker image') {
       steps {
-        sh 'tidy -q -e *.html'
+        sh 'sudo docker build -t userbackend'
+        sh 'sudo docker images ls'
       }
     }
-    stage('Upload to AWS') {
-        steps {
-          withAWS(region:'us-west-2', credentials:'aws-cli-admin') {
-            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'test.html', bucket:'domjenkinstestudacity')
-          }
-        }
-      }
   }
 }

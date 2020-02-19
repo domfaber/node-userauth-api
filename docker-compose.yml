@@ -1,0 +1,16 @@
+version: '3'
+services:
+  node:
+    image: granolahouse/containers
+    ports:
+      - "3000:3000"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: ec2-tutorial
+        awslogs-region: us-west-2
+        awslogs-stream-prefix: web
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
