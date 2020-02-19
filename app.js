@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to DB
 mongoose
-  .connect("mongodb+srv://granolahouse:Granolahouse064884!@granolahousedev-8pebt.mongodb.net/test?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://granolahouse:aaaaaaa!@granolahousedev-8pebt.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
