@@ -79,7 +79,7 @@ describe("drop users db", () => {
           email: "test250@gmail.com",
           password: "testpassword"
         });
-        expect(res.status).to.equal(300);
+        expect(res.status).to.equal(200);
         expect(res.body).to.have.property("userId");
         expect(res.body).to.have.property("token");
 
