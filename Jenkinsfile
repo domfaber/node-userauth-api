@@ -8,8 +8,8 @@ pipeline {
     }
     stage('Build docker image') {
       steps {
-        script {
-          def customImage = docker.build("my-image:${env.BUILD_ID}")
+        script {
+          
         }
       }
     }
