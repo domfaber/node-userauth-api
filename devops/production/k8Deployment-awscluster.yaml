@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermanagement4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usermanagement4
+  template:
+    metadata:
+      labels:
+        app: usermanagement4
+    spec:
+      containers:
+        - name: usermanagement4
+          image: 394549218635.dkr.ecr.us-west-2.amazonaws.com/granolahouse/usermanager:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+      dnsPolicy: None

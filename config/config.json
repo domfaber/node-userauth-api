@@ -1,0 +1,37 @@
+{
+    "local": {
+        "config_id": "local",
+        "app_name": "userbackendapi",
+        "app_desc": "my app desc",
+        "node_port": 3000,
+        "json_indentation": 4,
+        "db_user": "localUserbackendapiUser",
+        "db_password": "test",
+        "database": "db-userbackendapi-local"
+    },
+    "development": {
+        "config_id": "dev",
+        "app_name": "userbackendapi",
+        "app_desc": "my app desc",
+        "db_user": "",
+        "db_password": "",
+        "database": "db-userbackendapi-dev"
+
+    },
+    "staging": {
+        "config_id": "staging",
+        "app_name": "userbackendapi",
+        "app_desc": "my app desc",
+        "db_user": "",
+        "db_password": "",
+        "database": "db-userbackendapi-local"
+    },
+    "production": {
+        "config_id": "dev",
+        "app_name": "userbackendapi",
+        "app_desc": "my app desc",
+        "db_user": "",
+        "db_password": "",
+        "database": "db-userbackendapi-prod"
+    }
+}
