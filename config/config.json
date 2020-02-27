@@ -7,7 +7,7 @@
         "json_indentation": 4,
         "db_user": "localUserbackendapiUser",
         "db_password": "test",
-        "database": "userauth"
+        "database": "db-userauth-local"
     },
     "development": {
         "config_id": "dev",
