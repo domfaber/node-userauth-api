@@ -23,9 +23,6 @@ node {
 
         app = docker.build("granolahouse/userauth")
 
-        app.inside {
-          sh 'npm test'
-        }
     }
 
     
