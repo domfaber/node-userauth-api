@@ -10,7 +10,6 @@ node {
         /* 
          * We launch a mongodb from docker image first to test our service
         */
-        sh 'sudo docker-compose -f devops/local/docker-compose.yaml up --build -d mongodb'
         sh 'npm install'
         sh 'npm test'
 
