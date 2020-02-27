@@ -7,10 +7,10 @@ node {
     }
 
     stage('Test') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-        //appTest = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
-
+        /* 
+         * We launch a mongodb from docker image first to test our service
+        */
+        sh 'docker-compose -f devops/local/docker-compose.yaml up --build -d mongodb'
         sh 'npm install'
         sh 'npm test'
 
