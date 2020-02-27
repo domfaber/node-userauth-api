@@ -18,7 +18,7 @@ node {
 
     stage('Build production image') {
         /* This builds the actual image; synonymous to
-         * docker build on the command line */
+         * docker build on the command line test*/
         app = docker.build("granolahouse/userauth")
     }
 
