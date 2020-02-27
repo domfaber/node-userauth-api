@@ -11,7 +11,7 @@ node {
          * We launch a mongodb from docker image first to test our service
         */
 
-        sh 'docker-compose up -f docker-compose.yml --build -d mongodb'
+        sh 'docker-compose up -f ./devops/local/docker-compose.yaml --build -d mongodb'
         sh 'npm install'
         sh 'npm test'
       
