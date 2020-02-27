@@ -31,8 +31,6 @@
         "app_name": "userbackendapi",
         "app_desc": "my app desc",
         "database": "userauth",
-        "db_user": "userauth_dbadmin",
-        "db_password": "granolatest",
         "databaseDNS": "mongodb.default.svc.cluster.local"
     }
 }

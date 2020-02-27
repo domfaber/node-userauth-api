@@ -32,7 +32,7 @@ switch(global.gConfig.config_id) {
     dbConnectionURL = "mongodb+srv://"+global.gConfig.db_user+":"+global.gConfig.db_password+"@localhost:27017/"+dbname+"?authSource=admin";
   break;
   case "prod":
-    dbConnectionURL = "mongodb://"+global.gConfig.db_user+":"+global.gConfig.db_password+"@mongodb:27017/"+dbname+"?authSource=userauth";
+    dbConnectionURL = "mongodb://"+global.gConfig.db_user+":"+encodeURIComponent(global.gConfig.db_password)+"@mongodb:27017/"+dbname+"?authSource=userauth";
   break;
   default:
     console.log('Environment not configured');
@@ -40,6 +40,7 @@ switch(global.gConfig.config_id) {
 
 }
 
+console.log(dbConnectionURL);
 //let dbConnectionk8local = "mongodb+srv://root:bHyZ4M86Ym@my-release-mongodb.default.svc.cluster.local/users?authSource=admin&readPreference=primary&ssl=false";
 //let dbConnectionLocalDev = "mongodb://root:bHyZ4M86Ym@localhost:27017/users?authSource=admin&readPreference=primary&ssl=false";
 

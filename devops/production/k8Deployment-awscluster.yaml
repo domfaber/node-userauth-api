@@ -20,4 +20,14 @@ spec:
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
-              value: "production"
+              value: "production"  
+            - name: PROD_DB_SECRET_USERAUTH_DBUSERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: prod-db-secret-userauth
+                  key: username
+            - name: PROD_DB_SECRET_USERAUTH_DBPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: prod-db-secret-userauth
+                  key: password

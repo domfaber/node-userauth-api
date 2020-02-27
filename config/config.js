@@ -4,9 +4,9 @@ const _ = require('lodash');
 // module variables
 var loadConfigToModify = require('./config.json');
 
-//we need to load the credentials for production db from environment variable and add it manually to the config
-//loadConfigToModify.production.db_user = process.env.SECRET_DBUSERNAME;
-//loadConfigToModify.production.db_password = process.env.SECRET_DBPASSWORD;
+//we need to load the credentials for production db from a secret stored in the kubernetes cluster add it manually to the config
+loadConfigToModify.production.db_user = process.env.PROD_DB_SECRET_USERAUTH_DBUSERNAME;
+loadConfigToModify.production.db_password = process.env.PROD_DB_SECRET_USERAUTH_DBPASSWORD;
 
 const config = loadConfigToModify;
 
