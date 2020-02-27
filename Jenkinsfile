@@ -10,9 +10,10 @@ node {
         /* 
          * We launch a mongodb from docker image first to test our service
         */
+
+        sh 'docker-compose up -f docker-compose.yml --build -d mongodb'
         sh 'npm install'
         sh 'npm test'
-
       
     }
 
@@ -21,7 +22,7 @@ node {
          * docker build on the command line */
 
 
-        app = docker.build("granolahouse/userbackend", "-f dockerfiles/production/Dockerfile .")
+        app = docker.build("granolahouse/userbackend")
 
         app.inside {
           sh 'npm test'
@@ -38,6 +39,16 @@ node {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
+        }
+
+        //configure registry
+        docker.withRegistry('https://ID.ecr.eu-west-1.amazonaws.com', 'ecr:eu-west-1:86c8f5ec-1ce1-4e94-80c2-18e23bbd724a') {
+          
+            //build image
+            def customImage = docker.build("granolahouse/userauth:${env.BUILD_ID}")
+            
+            //push image
+            customImage.push()
         }
     }
 }
