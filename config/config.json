@@ -7,7 +7,7 @@
         "json_indentation": 4,
         "db_user": "localUserbackendapiUser",
         "db_password": "test",
-        "database": "db-userbackendapi-local"
+        "database": "userauth"
     },
     "development": {
         "config_id": "dev",
@@ -27,11 +27,12 @@
         "database": "db-userbackendapi-local"
     },
     "production": {
-        "config_id": "dev",
+        "config_id": "prod",
         "app_name": "userbackendapi",
         "app_desc": "my app desc",
-        "db_user": "",
-        "db_password": "",
-        "database": "db-userbackendapi-prod"
+        "database": "userauth",
+        "db_user": "userauth_dbadmin",
+        "db_password": "granolatest",
+        "databaseDNS": "mongodb.default.svc.cluster.local"
     }
 }

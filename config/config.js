@@ -2,10 +2,19 @@
 const _ = require('lodash');
 
 // module variables
-const config = require('./config.json');
+var loadConfigToModify = require('./config.json');
+
+//we need to load the credentials for production db from environment variable and add it manually to the config
+//loadConfigToModify.production.db_user = process.env.SECRET_DBUSERNAME;
+//loadConfigToModify.production.db_password = process.env.SECRET_DBPASSWORD;
+
+const config = loadConfigToModify;
+
 const defaultConfig = config.local;
-const environment = process.env.NODE_ENV || 'local';
+const environment = process.env.NODE_ENV || 'local'; 
 const environmentConfig = config[environment];
+
+
 const finalConfig = _.merge(defaultConfig, environmentConfig);
 
 // as a best practice

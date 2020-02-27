@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: userbackendapi
+  name: userauthapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: userbackendapi
+      app: userauthapi
   template:
     metadata:
       labels:
-        app: userbackendapi
+        app: userauthapi
     spec:
       containers:
-        - name: userbackendapi
-          image: granolahouse/userbackend:1.6
+        - name: userauthapi
+          image: granolahouse/userauthapi:latest
           ports:
             - containerPort: 3000
           imagePullPolicy: Always

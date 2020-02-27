@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: usermanagement4
+  name: userauth
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: usermanagement4
+      app: userauth
   template:
     metadata:
       labels:
-        app: usermanagement4
+        app: userauth 
     spec:
       containers:
-        - name: usermanagement4
-          image: 394549218635.dkr.ecr.us-west-2.amazonaws.com/granolahouse/usermanager:latest
+        - name: userauth
+          image: 394549218635.dkr.ecr.us-west-2.amazonaws.com/granolahouse/userauth:2
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
-      dnsPolicy: None
+          env:
+            - name: NODE_ENV
+              value: "production"

@@ -1,0 +1,11 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: newstorageclasstest
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2 
+  zones: eu-west-1a, eu-west-1b
+  iopsPerGB: "10" 
+  fsType: ext4
+VolumeBindingMode: Immediate

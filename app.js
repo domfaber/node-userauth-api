@@ -29,7 +29,10 @@ switch(global.gConfig.config_id) {
     dbConnectionURL = "mongodb://"+global.gConfig.db_user+":"+global.gConfig.db_password+"@localhost:27017/"+dbname+"?authSource=admin";
   break;
   case "dev":
-    dbConnectionURL = "mongodb://"+global.gConfig.db_user+":"+global.gConfig.db_password+"@localhost:27017/"+dbname+"?authSource=admin";
+    dbConnectionURL = "mongodb+srv://"+global.gConfig.db_user+":"+global.gConfig.db_password+"@localhost:27017/"+dbname+"?authSource=admin";
+  break;
+  case "prod":
+    dbConnectionURL = "mongodb://"+global.gConfig.db_user+":"+global.gConfig.db_password+"@mongodb:27017/"+dbname+"?authSource=userauth";
   break;
   default:
     console.log('Environment not configured');
